@@ -1,5 +1,5 @@
 @import './components/components';
-@import './material.min.css';
+
 body {
     font-family: 'Roboto', 'Helvetica', sans-serif;
     /* FIXME: Temp. workaround for vertical scrollbars */
@@ -88,19 +88,6 @@ a:link {
     box-sizing: border-box;
 }
 
-.mdl-text-field label {
-    color: #455A64;
-}
-
-.calc {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    height: auto;
-}
-
 .social-btn {
     background-position: center;
     background-size: contain;
@@ -159,24 +146,57 @@ p {
 }
 
 .about-bg {
-    height: 300px;
     width: 100%;
     padding-top: 100px;
     padding-bottom: 100px;
-    background-image: url(../images/me.jpg);
-    background-attachment: fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background: url(../images/me.jpg);
+}
+
+.specialty-bg {
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    display: flex;
 }
 
 .projects-bg {
-    height: 300px;
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    .projects-title{
+        margin: 0 auto;
+    }
+}
+
+.kakao-bg{
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background: url(../images/kakao.png);
+}
+
+.kakao-details{
     width: 100%;
     padding-top: 100px;
     padding-bottom: 100px;
 }
+
+.calcutip-bg{
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    display: flex;
+}
+
+.calcutip-title{
+    margin: auto;
+}
+
+.calcutip-img{
+    height: 100%;
+}
+
 
 @media all and (min-width: 990px) {
 
