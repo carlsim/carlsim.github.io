@@ -8,7 +8,6 @@ body {
     -o-transition: opacity 2s ease-in;
     -ms-transition: opacity 2s ease-in;
     transition: opacity 2s ease-in;
-    height: 100%;
 }
 
 a:link {
@@ -35,6 +34,10 @@ a:link {
 .card-container {
     max-width: 512px;
     margin: 0 auto;
+}
+
+.mdl-layout__content{
+    position: relative;
 }
 
 
@@ -142,14 +145,44 @@ p {
     display: flex;
     .headline-text {
         margin: auto;
+
+        .logo-area{
+            display: flex;
+            flex-direction: row;
+            height: auto;
+
+            > *:first-child{
+                padding-right: 32px;
+            }
+            .right-side{
+                margin: auto;
+                    h5{
+                    margin: 0;
+                }
+            }
+        }
     }
+
 }
 
 .about-bg {
-    width: 100%;
     padding-top: 100px;
     padding-bottom: 100px;
-    background: url(../images/me.jpg);
+    background-image: url("../images/me.jpg");
+    display: flex;
+    .about-text{
+        margin: auto;
+    }
+}
+
+.material-design-lite{
+    height: auto;
+}
+
+.about-bg:before{
+    height: 500px;
+    width: 100%;
+    will-change: transform;
 }
 
 .specialty-bg {
@@ -170,23 +203,53 @@ p {
 }
 
 .kakao-bg{
-    width: 100%;
     padding-top: 100px;
     padding-bottom: 100px;
-    background: url(../images/kakao.png);
+    background-image: url("../images/kakao.png");
+
+    .kakao-text{
+        margin: auto;
+    }
+
+    button{
+        background-color: #ffffff;
+    }
 }
 
-.kakao-details{
-    width: 100%;
-    padding-top: 100px;
-    padding-bottom: 100px;
+.parallax{
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
+/*
+.kakao-bg:before{
+    background-image: url('../images/kakao.png') no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    content: '';
+    will-change: transform;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    position: fixed;
+}
+*/
 
 .calcutip-bg{
     width: 100%;
     padding-top: 100px;
     padding-bottom: 100px;
     display: flex;
+    background-color: $colorGrey800;
+
+    .calcutip-text{
+        margin: auto;
+    }
+
+    button{
+        background-color: #ffffff;
+    }
 }
 
 .calcutip-title{
@@ -194,10 +257,35 @@ p {
 }
 
 .calcutip-img{
-    height: 100%;
+    size: 50%;
+}
+
+.material-tumblr-bg{
+    background-image: url(../images/tumblr.png);
+    background-attachment: fixed;
+
+    .material-tumblr-title{
+        margin: auto;
+    }
+    button{
+        background-color: #ffffff;
+    }
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
 }
 
 
 @media all and (min-width: 990px) {
-
+    .kakao-bg{
+    }
+    .calcutip-bg{
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
 }
