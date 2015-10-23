@@ -55,36 +55,6 @@ a:link {
     margin-top: 34px;
 }
 
-.mdl-card__supporting-text p {
-    color: #455A64;
-}
-
-.mdl-layout__header {
-    background-color: #ffffff;
-}
-
-.mdl-card__media {
-    box-sizing: border-box;
-    background-size: cover;
-    background-color: #455A64;
-    padding: 24px;
-}
-
-.mdl-card__actions {
-    padding: 0;
-}
-
-.mdl-card__supporting-text button {
-    background: #455A64;
-    width: 100%;
-}
-
-.mdl-card__supporting-text {
-    width: 100%;
-    padding: 16px;
-    box-sizing: border-box;
-}
-
 .mdl-mini-footer {
     padding-bottom: 100px;
     align-items: center;
@@ -167,7 +137,11 @@ p {
 .about-bg {
     padding-top: 100px;
     padding-bottom: 100px;
+    background-color: #332928;
     background-image: url("../images/me.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 90% 50%;
     display: flex;
     .about-text{
         margin: auto;
@@ -190,11 +164,23 @@ p {
     padding-bottom: 100px;
     display: flex;
 }
-
-.projects-bg {
+.philosophy-bg {
     width: 100%;
     padding-top: 100px;
     padding-bottom: 100px;
+    display: flex;
+}
+
+.projects-bg {
+    background-color: $colorCyan900;
+    width: 100%;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    display: flex;
+
+    .projects-text{
+        margin: auto;
+    }
 
     .projects-title{
         margin: 0 auto;
@@ -202,11 +188,20 @@ p {
 }
 
 .kakao-bg{
-    padding-top: 100px;
-    padding-bottom: 100px;
-    background-image: url("../images/kakao.png");
+    width: 100%;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    background-color: $colorCyan500;
 
-    .kakao-text{
+    .kakao-img{
+        background-image: url(../images/kakao.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        min-height: 400px;
+    }
+
+    .kakao-detail{
         margin: auto;
     }
 
@@ -215,34 +210,23 @@ p {
     }
 }
 
-.parallax{
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-}
-/*
-.kakao-bg:before{
-    background-image: url('../images/kakao.png') no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    content: '';
-    will-change: transform;
-    z-index: -1;
-    left: 0;
-    top: 0;
-    position: fixed;
-}
-*/
+
 
 .calcutip-bg{
     width: 100%;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    display: flex;
+    padding-top: 64px;
+    padding-bottom: 64px;
     background-color: $colorGrey800;
 
-    .calcutip-text{
+    .calcutip-img{
+        background-image: url(../images/calcutip.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        min-height: 600px;
+    }
+
+    .calcutip-detail{
         margin: auto;
     }
 
@@ -251,17 +235,11 @@ p {
     }
 }
 
-.calcutip-title{
-    margin: auto;
-}
-
-.calcutip-img{
-    size: 50%;
-}
-
 .material-tumblr-bg{
-    background-image: url(../images/tumblr.png);
-    background-attachment: fixed;
+    background-color: $colorBlueGrey800;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    width: 100%;
 
     .material-tumblr-title{
         margin: auto;
@@ -269,6 +247,42 @@ p {
     button{
         background-color: #ffffff;
     }
+}
+
+.contact-bg {
+    background-color: $colorGrey900;
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    .contact-text{
+        margin: auto;
+    }
+
+    .contact-title{
+        margin: 0 auto;
+    }
+}
+
+.photography-bg {
+    width: 100%;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    display: flex;
+    background-color: $colorGrey200;
+
+
+    .photography-text{
+        margin: auto;
+    }
+
+    .photographys-title{
+        margin: 0 auto;
+    }
+}
+
+button{
+    margin-right: 16px;
 }
 
 .left{
@@ -279,11 +293,25 @@ p {
     float: right;
 }
 
+.parallax{
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+a{
+    color: $colorRed500;
+}
 
 @media all and (min-width: 990px) {
     .kakao-bg{
     }
     .calcutip-bg{
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    .material-tumblr-bg{
         padding-top: 0px;
         padding-bottom: 0px;
     }
