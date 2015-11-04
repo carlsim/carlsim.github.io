@@ -11,6 +11,7 @@ body {
 }
 
 a:link {
+    color: $colorPinkA200;
     text-decoration: none;
 }
 
@@ -27,12 +28,12 @@ a:link {
 }
 
 .container {
-    max-width: 950px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
 .card-container {
-    max-width: 512px;
+    max-width: 550px;
     margin: 0 auto;
 }
 
@@ -53,12 +54,6 @@ a:link {
 
 .section-separator {
     margin-top: 34px;
-}
-
-.mdl-mini-footer {
-    padding-bottom: 100px;
-    align-items: center;
-    box-sizing: border-box;
 }
 
 .social-btn {
@@ -103,14 +98,56 @@ a {
     color: #F50057;
     font-weight: 700;
 }
-
+/*
 p {
     font-size: 16px;
     line-height: 28px;
 } 
+*/
+.mdl-mini-footer {
+    padding-bottom: 100px;
+    background-color: #ffffff;
+    align-items: center;
+    box-sizing: border-box;
+}
+/*
+.grad {
+  background: -webkit-linear-gradient(left top, $colorGrey900 , $colorGrey800); 
+  background: -o-linear-gradient(bottom right, $colorGrey900, $colorGrey800); 
+  background: -moz-linear-gradient(bottom right, $colorGrey900, $colorGrey800); 
+  background: linear-gradient(to bottom right, $colorGrey900 , $colorGrey800);
+}
+*/
+
+.grayscale { 
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: url(grayscale.svg); /* Firefox 4+ */
+  filter: gray; /* IE 6-9 */
+}
+
+.mdl-card {
+    padding: 48px;
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.mdl-card__supporting-text{
+    width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.mdl-layout__content{
+    background-color: $colorGrey900;
+}
 
 .headline-bg {
-    background-color: $colorGrey900;
     height: 90vh;
     display: flex;
     .headline-text {
@@ -134,152 +171,49 @@ p {
     }
 }
 
-.about-bg {
-    padding-top: 150px;
-    padding-bottom: 150px;
-    background-color: #332928;
-    background-image: url("../images/me.jpg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 90% 50%;
-    display: flex;
-    .about-text{
-        margin: auto;
-    }
-}
-
-.material-design-lite{
+.avatar{
     height: auto;
+    margin: auto;
+    width: 200px;
+    img{
+        border-radius: 50%;
+    }
 }
 
-.about-bg:before{
-    height: 500px;
-    width: 100%;
-    will-change: transform;
+.title{
+    font-weight: strong;
 }
 
-.specialty-bg {
-    width: 100%;
-    padding-top: 100px;
-    padding-bottom: 100px;
+.about-card{
     display: flex;
+    .title{
+        
+    }
 }
-.philosophy-bg {
-    width: 100%;
-    padding-top: 100px;
-    padding-bottom: 100px;
+
+.portfolio-card{
     display: flex;
-}
-
-.projects-bg {
-    background-color: $colorCyan900;
-    width: 100%;
-    padding-top: 64px;
-    padding-bottom: 64px;
-    display: flex;
-
-    .projects-text{
-        margin: auto;
-    }
-
-    .projects-title{
-        margin: 0 auto;
-    }
-}
-
-.kakao-bg{
-    width: 100%;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    background-color: $colorCyan500;
-
-    .kakao-img{
-        background-image: url(../images/kakao.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
-        min-height: 400px;
-    }
-
-    .kakao-detail{
-        margin: auto;
-    }
-
-    button{
-        background-color: #ffffff;
-    }
-}
-
-
-
-.calcutip-bg{
-    width: 100%;
-    padding-top: 64px;
-    padding-bottom: 64px;
-    background-color: $colorGrey800;
-
-    .calcutip-img{
-        background-image: url(../images/calcutip.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
-        min-height: 600px;
-    }
-
-    .calcutip-detail{
-        margin: auto;
-    }
-
-    button{
-        background-color: #ffffff;
-    }
-}
-
-.material-tumblr-bg{
-    background-color: $colorBlueGrey800;
-    padding-top: 64px;
-    padding-bottom: 64px;
-    width: 100%;
-
-    .material-tumblr-title{
-        margin: auto;
-    }
-    button{
-        background-color: #ffffff;
+    .work-area{
+        display: flex;
+        flex-direction: row;
+        .title-area{
+            width: 25%;
+            padding-right: 32px;
+        }
+        .details-area{
+            width: 75%;
+        }
     }
 }
 
 .contact-bg {
-    background-color: $colorGrey900;
+    margin-top: 200px;
+    background-color: $colorGrey300;
     width: 100%;
-    padding-top: 100px;
-    padding-bottom: 100px;
-
-    .contact-text{
-        margin: auto;
-    }
-
-    .contact-title{
-        margin: 0 auto;
-    }
+    padding-top: 32px;
+    padding-bottom: 32px;
 }
 
-.photography-bg {
-    width: 100%;
-    padding-top: 64px;
-    padding-bottom: 64px;
-    display: flex;
-    background-color: $colorGrey200;
-
-
-    .photography-text{
-        margin: auto;
-    }
-
-    .photographys-title{
-        margin: 0 auto;
-    }
-}
 
 button{
     margin-right: 16px;
