@@ -70,15 +70,11 @@ a:link {
 }
 
 .social-btn__twitter {
-    background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_twitter_black_24dp.png');
-}
-
-.social-btn__blogger {
-    background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_facebook_black_24dp.png');
+    background-image: url(../images/icons/twitter.svg);
 }
 
 .social-btn__gplus {
-    background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_gplus_black_24dp.png');
+    background-image: url(../images/icons/google-plus.svg);
 }
 
 .social-btn__share {
@@ -98,31 +94,31 @@ a {
     color: #F50057;
     font-weight: 700;
 }
-/*
+
 p {
     font-size: 16px;
     line-height: 28px;
 } 
-*/
+
 .mdl-mini-footer {
     padding-bottom: 100px;
     background-color: #ffffff;
     align-items: center;
     box-sizing: border-box;
 }
-/*
+
 .grad {
   background: -webkit-linear-gradient(left top, $colorGrey900 , $colorGrey800); 
   background: -o-linear-gradient(bottom right, $colorGrey900, $colorGrey800); 
   background: -moz-linear-gradient(bottom right, $colorGrey900, $colorGrey800); 
   background: linear-gradient(to bottom right, $colorGrey900 , $colorGrey800);
 }
-*/
+
 
 
 .mdl-card {
-    padding: 48px;
-    margin-top: 32px;
+    padding: 16px;
+    margin-bottom: 48px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -156,7 +152,7 @@ p {
 }
 
 .headline-bg {
-    height: 90vh;
+    height: 100vh;
     display: flex;
     .headline-text {
         margin: auto;
@@ -250,4 +246,7 @@ a{
 }
 
 @media all and (min-width: 990px) {
+    .mdl-card {
+        padding: 48px;
+    }
 }
