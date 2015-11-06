@@ -194,7 +194,9 @@ p {
 
 .about-card{
     display: flex;
-    
+    .area__social-media{
+        margin: auto;
+    }
 }
 
 .specialization-bg {

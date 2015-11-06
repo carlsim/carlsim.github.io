@@ -37,8 +37,7 @@
         console.log(xVal);
 
         if (xVal < aboutOffset-100) {
-            console.log(aboutOffset);
-            console.log("above about");
+            
 
 
             $('.about-card .mdl-card__supporting-text').removeClass(
@@ -46,17 +45,14 @@
             );
         }
         if (xVal > aboutOffset-400) {
-            console.log(aboutOffset);
-            console.log("below about");
-
+            
 
             $('.about-card .mdl-card__supporting-text').addClass(
                 'text-after'
             );
         }
         if (xVal < specializationOffset-100) {
-            console.log(specializationOffset);
-            console.log("above specialization");
+            
 
 
             $('.specialization-card .mdl-card__supporting-text').removeClass(
@@ -64,8 +60,7 @@
             );
         }
         if (xVal > specializationOffset-400) {
-            console.log(specializationOffset);
-            console.log("below specialization");
+            
 
 
             $('.specialization-card .mdl-card__supporting-text').addClass(
@@ -73,8 +68,7 @@
             );
         }
         if (xVal < portfolioOffset-100) {
-            console.log(portfolioOffset);
-            console.log("above portfolio");
+            
 
 
             $('.portfolio-card .mdl-card__supporting-text').removeClass(
@@ -82,8 +76,7 @@
             );
         }
         if (xVal > portfolioOffset-400) {
-            console.log(portfolioOffset);
-            console.log("below portfolio");
+            
 
 
             $('.portfolio-card .mdl-card__supporting-text').addClass(
