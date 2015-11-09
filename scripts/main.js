@@ -1,4 +1,9 @@
 (function() {
+
+    console.log("loaded!");
+
+    init();
+
     'use strict';
 
     var querySelector = document.querySelector.bind(document);
@@ -30,13 +35,18 @@
     var portfolioOffset = $('.portfolio-card').offset().top;
     var specializationOffset = $('.specialization-card').offset().top;
 
+    var winX = $(window).width();
+    var winY = $(window).height();
+
+    var winYScreenPc = (winY * 0.75);
+
     $('main').scroll(function() {
         var xVal = $('.mdl-layout__content').scrollTop();
 
 
         console.log(xVal);
 
-        if (xVal < aboutOffset-100) {
+        if (xVal < aboutOffset-(winYScreenPc)) {
             console.log(aboutOffset);
             console.log("above about");
 
@@ -45,7 +55,7 @@
                 'text-after'
             );
         }
-        if (xVal > aboutOffset-400) {
+        if (xVal > aboutOffset-(winYScreenPc)) {
             console.log(aboutOffset);
             console.log("below about");
 
@@ -54,7 +64,7 @@
                 'text-after'
             );
         }
-        if (xVal < specializationOffset-100) {
+        if (xVal < specializationOffset-(winYScreenPc)) {
             console.log(specializationOffset);
             console.log("above specialization");
 
@@ -63,7 +73,7 @@
                 'text-after'
             );
         }
-        if (xVal > specializationOffset-400) {
+        if (xVal > specializationOffset-(winYScreenPc)) {
             console.log(specializationOffset);
             console.log("below specialization");
 
@@ -72,7 +82,7 @@
                 'text-after'
             );
         }
-        if (xVal < portfolioOffset-100) {
+        if (xVal < portfolioOffset-(winYScreenPc)) {
             console.log(portfolioOffset);
             console.log("above portfolio");
 
@@ -81,7 +91,7 @@
                 'text-after'
             );
         }
-        if (xVal > portfolioOffset-400) {
+        if (xVal > portfolioOffset-(winYScreenPc)) {
             console.log(portfolioOffset);
             console.log("below portfolio");
 
@@ -96,3 +106,23 @@
     //menuBtn.addEventListener('click', toggleMenu);
 
 })();
+
+function init(){
+    $('.about-card .mdl-card__supporting-text').addClass(
+        'text-initial'
+    );
+    $('.specialization-card .mdl-card__supporting-text').addClass(
+        'text-initial'
+    );
+    $('.portfolio-card .mdl-card__supporting-text').addClass(
+        'text-initial'
+    );
+    console.log("added text-initial");
+}
+
+$(document).ready( function() {
+    $('.headline-text').addClass(
+        'text-after'
+    );
+    console.log("document loaded");
+});
