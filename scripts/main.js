@@ -32,8 +32,11 @@
     var header = querySelector(header);
 
     var aboutOffset = $('.about-card').offset().top;
-    var portfolioOffset = $('.portfolio-card').offset().top;
     var specializationOffset = $('.specialization-card').offset().top;
+    var photoOffset = $('.photography-card').offset().top;
+    var kakaoOffset = $('.kakao-card').offset().top;
+    var calcOffset = $('.calcutip-card').offset().top;
+    var tumblrOffset = $('.tumblr-card').offset().top;
 
     var winX = $(window).width();
     var winY = $(window).height();
@@ -68,7 +71,6 @@
             console.log(specializationOffset);
             console.log("above specialization");
 
-
             $('.specialization-card .mdl-card__supporting-text').removeClass(
                 'text-after'
             );
@@ -82,21 +84,55 @@
                 'text-after'
             );
         }
-        if (xVal < portfolioOffset-(winYScreenPc)) {
-            console.log(portfolioOffset);
-            console.log("above portfolio");
+        if (xVal < photoOffset-(winYScreenPc)) {
 
-
-            $('.portfolio-card .mdl-card__supporting-text').removeClass(
+            $('.photography-card .mdl-card__actions').removeClass(
                 'text-after'
             );
         }
-        if (xVal > portfolioOffset-(winYScreenPc)) {
-            console.log(portfolioOffset);
-            console.log("below portfolio");
+        if (xVal > photoOffset-(winYScreenPc)) {
 
 
-            $('.portfolio-card .mdl-card__supporting-text').addClass(
+            $('.photography-card .mdl-card__actions').addClass(
+                'text-after'
+            );
+        }
+        if (xVal < kakaoOffset-(winYScreenPc)) {
+
+            $('.kakao-card .mdl-card__actions').removeClass(
+                'text-after'
+            );
+        }
+        if (xVal > kakaoOffset-(winYScreenPc)) {
+
+
+            $('.kakao-card .mdl-card__actions').addClass(
+                'text-after'
+            );
+        }
+        if (xVal < calcOffset-(winYScreenPc)) {
+
+            $('.calcutip-card .mdl-card__actions').removeClass(
+                'text-after'
+            );
+        }
+        if (xVal > calcOffset-(winYScreenPc)) {
+
+
+            $('.calcutip-card .mdl-card__actions').addClass(
+                'text-after'
+            );
+        }
+        if (xVal < tumblrOffset-(winYScreenPc)) {
+
+            $('.tumblr-card .mdl-card__actions').removeClass(
+                'text-after'
+            );
+        }
+        if (xVal > tumblrOffset-(winYScreenPc)) {
+
+
+            $('.tumblr-card .mdl-card__actions').addClass(
                 'text-after'
             );
         }
@@ -114,15 +150,17 @@ function init(){
     $('.specialization-card .mdl-card__supporting-text').addClass(
         'text-initial'
     );
-    $('.portfolio-card .mdl-card__supporting-text').addClass(
+    $('.photography-card .mdl-card__actions').addClass(
+        'text-initial'
+    );
+    $('.kakao-card .mdl-card__actions').addClass(
+        'text-initial'
+    );
+    $('.calcutip-card .mdl-card__actions').addClass(
+        'text-initial'
+    );
+    $('.tumblr-card .mdl-card__actions').addClass(
         'text-initial'
     );
     console.log("added text-initial");
 }
-
-$(document).ready( function() {
-    $('.headline-text').addClass(
-        'text-after'
-    );
-    console.log("document loaded");
-});

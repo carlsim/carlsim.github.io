@@ -103,8 +103,7 @@ img {
 }
 
 a {
-    color: #F50057;
-    font-weight: 700;
+    color: $colorGrey50;
 }
 
 p {
@@ -120,27 +119,51 @@ p {
 }
 
 .grad {
-  background: -webkit-linear-gradient(left top, $colorGrey900 , $colorGrey800); 
-  background: -o-linear-gradient(bottom right, $colorGrey900, $colorGrey800); 
-  background: -moz-linear-gradient(bottom right, $colorGrey900, $colorGrey800); 
-  background: linear-gradient(to bottom right, $colorGrey900 , $colorGrey800);
+  background: -webkit-linear-gradient(bottom, $colorGrey900 , transparent); 
+  background: -o-linear-gradient(top, $colorGrey900, transparent); 
+  background: -moz-linear-gradient(top, $colorGrey900, transparent); 
+  background: linear-gradient(to top, $colorGrey900 , transparent);
+
 }
 
 
 
 .mdl-card {
-    padding: 16px;
     margin-bottom: 48px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
 }
 
+.mdl-card__title {
+    padding: 16px;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+.mdl-card__subtitle-text{
+    flex-direction: column;
+}
+
+.mdl-card__media {
+    box-sizing: border-box;
+    background-size: cover;
+    padding: 24px;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    align-items: flex-end;
+    min-height: 200px;
+}
+
+/*
 .mdl-card__supporting-text{
     width: 100%;
     padding: 16px;
     box-sizing: border-box;
 }
+*/
 
 .mdl-layout__content{
     background-color: $colorGrey900;
@@ -212,19 +235,69 @@ p {
     }
 }
 
+.md-tumblr-card .mdl-card__media{
+    background-color: $colorBlueGrey700;
+}
+.calcutip-card .mdl-card__media{
+    background-color: $colorGrey800;
+}
+.md-kakao-card .mdl-card__media{
+    background-color: $colorCyan500;
+}
+.md-yorku-card .mdl-card__media{
+    background-color: $colorRed500;
+}
+
+.end-align{
+    flex-grow: 1;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+
 .portfolio-card{
     display: flex;
-    .work-area{
-        display: flex;
-        flex-direction: row;
-        .title-area{
-            width: 25%;
-            padding-right: 32px;
-        }
-        .details-area{
-            width: 75%;
-        }
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    .mdl-card{
+        width: 100%;
+        margin-bottom: 0;
     }
+    .photography-card{
+        background: url(../images/toronto.jpg) center / cover;
+        min-height: 300px;
+    }
+    .kakao-card{
+        background: url(../images/kakao.png) center / cover;
+        background-color: $colorCyan500;
+        min-height: 300px;
+    }
+    .calcutip-card{
+        background: url(../images/calcutip.png) center / cover;
+        background-color: $colorGrey800;
+        min-height: 300px;
+    }
+    .tumblr-card{
+        background: url(../images/tumblr.png) center / cover;
+        background-color: $colorBlueGrey700;
+        min-height: 300px;
+    }
+    .mdl-card__actions {
+        padding: 16px;
+
+    }
+    h5{
+        margin-bottom: 8px;
+    }
+}
+
+.link-block{
+    display: block;
 }
 
 .contact-bg {
@@ -256,12 +329,12 @@ button{
     background-size: cover;
 }
 
-a{
-    color: $colorRed500;
-}
-
 @media all and (min-width: 990px) {
-    .mdl-card {
+    .mdl-card__media{
+        padding-left: 48px;
+        padding-right: 48px;
+    }
+    .mdl-card__supporting-text {
         padding: 48px;
     }
 }
