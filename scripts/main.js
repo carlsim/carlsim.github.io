@@ -1,166 +1,158 @@
-(function() {
+function getChar(event) {
+    if (event.which === null) {
+        return String.fromCharCode(event.keyCode);
+    } else if (event.which !== 0 && event.charCode !== 0) {
+        return String.fromCharCode(event.which);
+    } else {
+        return null;
+    }
+}
 
-    console.log("loaded!");
+/**
+ *
+ *  calculateTip(total, tip)
+ *  Calculates the final tip  
+ *
+ *  total - Total of acumulated items purchased
+ *  tip - Tip amount inputted 
+ *
+ ***/
+function calcTipWithoutTax(total, finalTax, tip) {
+    return (total - finalTax) * (tip + 1) - (total - finalTax);
+}
 
-    init();
+function calcTipWithTax(total, tip) {
+    return (total * (tip + 1)) - total;
+}
 
-    'use strict';
+function calcTax(total, tax) {
+    return total - (total / (tax + 1));
+}
 
-    var querySelector = document.querySelector.bind(document);
+function calcTotalWithTax(total, finalTipWithTax, numOfPeople) {
+    return (total + finalTipWithTax) / numOfPeople;
+}
 
-    //var navdrawerContainer = querySelector('.navdrawer-container');
-    var body = document.body;
-    //var appbarElement = querySelector('.app-bar');
-    //var menuBtn = querySelector('.menu');
-    var main = querySelector('main');
-    /*
-      function closeMenu() {
-        body.classList.remove('open');
-        appbarElement.classList.remove('open');
-        navdrawerContainer.classList.remove('open');
-      }
+function calcTotalWithoutTax(total, finalTipWithoutTax, numOfPeople) {
+    return (total + finalTipWithoutTax) / numOfPeople;
+}
+/**
+ *
+ *  calculation()
+ *  Overall calculation done with the application
+ *
+ **/
 
-      function toggleMenu() {
-        body.classList.toggle('open');
-        appbarElement.classList.toggle('open');
-        navdrawerContainer.classList.toggle('open');
-        navdrawerContainer.classList.add('opened');
-      }
+function calculation() {
+    /**
+     *
+     *  Variable Initialization
+     *
+     *  tax - Tax specified by the user
+     *  total - Accumulated total on the users bill
+     *  numofOeople - Number of people to split the bill with
+     *  tip - Tip percentage speicifed by the user. .01 to make the number a decimal number (eg 10% tip = 0.10)
+     *
+     **/
+    var total = parseFloat($('#accumulatedTotal').val());
+    var tax = parseFloat($('#tax').val() * 0.01);
+    var numOfPeople = parseInt($('#numOfPeople').val());
+    var tip = parseFloat($('#tip').val());
+
+    /**
+    *
+    *   Check to see if total field is empty
+    *
     */
-    console.log("greater than 500");
+    if(isNaN(total)){
+        console.log('total = 0');
+        total = 0;
+    }
 
-    var header = querySelector(header);
+    tip *= 0.01;
+    console.log("Tax: " + tax);
+    console.log("Total: " + total);
+    console.log("Num of People: " + numOfPeople);
+    console.log("Tip: " + tip);
 
-    var aboutOffset = $('.about-card').offset().top;
-    var specializationOffset = $('.specialization-card').offset().top;
-    var photoOffset = $('.photography-card').offset().top;
-    var kakaoOffset = $('.kakao-card').offset().top;
-    var calcOffset = $('.calcutip-card').offset().top;
-    var tumblrOffset = $('.tumblr-card').offset().top;
+    /**
+     *
+     *  Variable Initializations for calculation
+     *
+     *  finalTipl - final calculation for the tip
+     *  finalCalculationWithTip - overall total with the tip
+     *  finalCalculationWithoutTip - overall total without the tip
+     *
+     **/
+    var finalTax = calcTax(total, tax);
+    var finalTipWithTax = calcTipWithTax(total, tip);
+    var finalTipWithoutTax = calcTipWithoutTax(total, finalTax, tip);
+    var finalCalcTotalWithTax = calcTotalWithTax(total, finalTipWithTax, numOfPeople);
+    var finalCalcTotalWithoutTax = calcTotalWithoutTax(total, finalTipWithoutTax, numOfPeople);
 
-    var winX = $(window).width();
-    var winY = $(window).height();
+    $('#taxAmount').text("$" + finalTax.toFixed(2));
+    $('#tipTotalWithTax').text("$" + finalTipWithTax.toFixed(2));
+    $('#tip-total-without-tax').text("$" + finalTipWithoutTax.toFixed(2));
+    $('#calcTotalWithTax').text("$" + finalCalcTotalWithTax.toFixed(2));
+    $('#calc-total-without-tax').text("$" + finalCalcTotalWithoutTax.toFixed(2));
+}
 
-    var winYScreenPc = (winY * 0.75);
-
-    $('main').scroll(function() {
-        var xVal = $('.mdl-layout__content').scrollTop();
-
-
-        console.log(xVal);
-
-        if (xVal < aboutOffset-(winYScreenPc)) {
-            console.log(aboutOffset);
-            console.log("above about");
-
-
-            $('.about-card .mdl-card__supporting-text').removeClass(
-                'text-after'
-            );
-        }
-        if (xVal > aboutOffset-(winYScreenPc)) {
-            console.log(aboutOffset);
-            console.log("below about");
-
-
-            $('.about-card .mdl-card__supporting-text').addClass(
-                'text-after'
-            );
-        }
-        if (xVal < specializationOffset-(winYScreenPc)) {
-            console.log(specializationOffset);
-            console.log("above specialization");
-
-            $('.specialization-card .mdl-card__supporting-text').removeClass(
-                'text-after'
-            );
-        }
-        if (xVal > specializationOffset-(winYScreenPc)) {
-            console.log(specializationOffset);
-            console.log("below specialization");
-
-
-            $('.specialization-card .mdl-card__supporting-text').addClass(
-                'text-after'
-            );
-        }
-        if (xVal < photoOffset-(winYScreenPc)) {
-
-            $('.photography-card .mdl-card__actions').removeClass(
-                'text-after'
-            );
-        }
-        if (xVal > photoOffset-(winYScreenPc)) {
-
-
-            $('.photography-card .mdl-card__actions').addClass(
-                'text-after'
-            );
-        }
-        if (xVal < kakaoOffset-(winYScreenPc)) {
-
-            $('.kakao-card .mdl-card__actions').removeClass(
-                'text-after'
-            );
-        }
-        if (xVal > kakaoOffset-(winYScreenPc)) {
-
-
-            $('.kakao-card .mdl-card__actions').addClass(
-                'text-after'
-            );
-        }
-        if (xVal < calcOffset-(winYScreenPc)) {
-
-            $('.calcutip-card .mdl-card__actions').removeClass(
-                'text-after'
-            );
-        }
-        if (xVal > calcOffset-(winYScreenPc)) {
-
-
-            $('.calcutip-card .mdl-card__actions').addClass(
-                'text-after'
-            );
-        }
-        if (xVal < tumblrOffset-(winYScreenPc)) {
-
-            $('.tumblr-card .mdl-card__actions').removeClass(
-                'text-after'
-            );
-        }
-        if (xVal > tumblrOffset-(winYScreenPc)) {
-
-
-            $('.tumblr-card .mdl-card__actions').addClass(
-                'text-after'
-            );
+function init(){
+    console.log("in init()");
+    $('#total-more-area').addClass(
+        'hide'
+    );
+    $('#info-more-area').addClass(
+        'hide'
+    );
+    
+    $('#total-more-button').click(function(){
+        if($('#total-more-area').hasClass('hide')){
+            $('#total-more-area').removeClass('hide').addClass('show');
+            $('#total-more-button').text('Less bill info');
+            console.log("clicked show more info");
+        }else if($('#total-more-area').hasClass('show')){
+            
+            $('#total-more-area').removeClass('show').addClass('hide');
+            $('#total-more-button').text('Full bill info');
+            console.log("clicked show less info");
         }
     });
 
-    // main.addEventListener('click', closeMenu);
-    //menuBtn.addEventListener('click', toggleMenu);
-
-})();
-
-function init(){
-    $('.about-card .mdl-card__supporting-text').addClass(
-        'text-initial'
-    );
-    $('.specialization-card .mdl-card__supporting-text').addClass(
-        'text-initial'
-    );
-    $('.photography-card .mdl-card__actions').addClass(
-        'text-initial'
-    );
-    $('.kakao-card .mdl-card__actions').addClass(
-        'text-initial'
-    );
-    $('.calcutip-card .mdl-card__actions').addClass(
-        'text-initial'
-    );
-    $('.tumblr-card .mdl-card__actions').addClass(
-        'text-initial'
-    );
-    console.log("added text-initial");
+    $('#info-more-button').click(function(){
+        if($('#info-more-area').hasClass('hide')){
+            $('#info-more-area').removeClass('hide').addClass('show');
+            $('#info-more-button').text('Less');
+        }else if($('#info-more-area').hasClass('show')){
+            
+            $('#info-more-area').removeClass('show').addClass('hide');
+            $('#info-more-button').text('More');
+        }
+    });
 }
+
+/**
+ *
+ *  When the "Submit" id (usually a button) is clicked
+ *
+ **/
+$(function(){
+    init();
+    calculation();
+});
+
+$('#tax').on('input', function(event) {
+    calculation();
+});
+
+$('#accumulatedTotal').on('input', function(event) {
+    calculation();
+});
+
+$('numOfPeople').on('input', function(event) {
+    calculation();
+});
+
+$('#tip').on('input', function(event) {
+    calculation();
+});
