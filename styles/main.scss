@@ -1,6 +1,7 @@
-@import './components/components';
+@import 'components/components';
 
 body {
+    /*background-image: url('../images/bg2.jpg');*/
     font-family: 'Roboto', 'Helvetica', sans-serif;
     /* FIXME: Temp. workaround for vertical scrollbars */
     -webkit-transition: opacity 2s ease-in;
@@ -8,19 +9,17 @@ body {
     -o-transition: opacity 2s ease-in;
     -ms-transition: opacity 2s ease-in;
     transition: opacity 2s ease-in;
+    height: 100%;
 }
 
 a:link {
-    color: $colorPinkA200;
     text-decoration: none;
 }
-
-
 /******
-    *
-    * Containers
-    *
-    *******/
+*
+* Containers
+*
+*******/
 
 .wide-container {
     max-width: 1080px;
@@ -28,25 +27,19 @@ a:link {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 950px;
     margin: 0 auto;
 }
 
 .card-container {
-    max-width: 550px;
+    max-width: 512px;
     margin: 0 auto;
 }
-
-.mdl-layout__content{
-    position: relative;
-}
-
-
 /*****
-    *
-    *
-    *
-    ******/
+*
+*
+*
+******/
 
 .section-spacer {
     flex-grow: 1;
@@ -55,6 +48,57 @@ a:link {
 .section-separator {
     margin-top: 34px;
 }
+
+.mdl-card__supporting-text p {
+    color: #455A64;
+}
+
+.mdl-layout__header {
+    background-color: #212121;
+}
+
+.mdl-card__media {
+    box-sizing: border-box;
+    background-size: cover;
+    background-color: #455A64;
+    padding: 24px;
+}
+
+.mdl-card__actions {
+    padding: 0;
+}
+
+.mdl-card__supporting-text button {
+    background: #455A64;
+    width: 100%;
+}
+
+.mdl-card__supporting-text {
+    width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.mdl-mini-footer {
+    padding-bottom: 100px;
+    background-color: #ffffff;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.mdl-text-field label {
+    color: #455A64;
+}
+
+.calc {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+}
+
 
 .social-btn {
     background-position: center;
@@ -93,84 +137,28 @@ a:link {
     color: rgba(0, 0, 0, 0.54);
     background: transparent;
 }
-/*
-*
-*   element styles
-*
-*/
-img {
-    width: 100%;
-}
 
-a {
-    color: $colorGrey50;
-}
-
-p {
-    font-size: 16px;
-    line-height: 28px;
-} 
-
-.mdl-mini-footer {
-    padding-bottom: 100px;
-    background-color: #ffffff;
-    align-items: center;
-    box-sizing: border-box;
-}
-
-.grad {
-  background: -webkit-linear-gradient(bottom, $colorGrey900 , transparent); 
-  background: -o-linear-gradient(top, $colorGrey900, transparent); 
-  background: -moz-linear-gradient(top, $colorGrey900, transparent); 
-  background: linear-gradient(to top, $colorGrey900 , transparent);
-
-}
-
-
-
-.mdl-card {
-    margin-bottom: 48px;
+.input-area {
     display: flex;
-    flex-direction: column;
+    margin: auto;
+    flex-flow: row wrap;
     align-items: stretch;
+    justify-content: space-around;
 }
 
-.mdl-card__title {
-    padding: 16px;
-    -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-}
-.mdl-card__subtitle-text{
-    flex-direction: column;
+.subhead-text {
+    font-size: 17px;
 }
 
-.mdl-card__media {
-    box-sizing: border-box;
-    background-size: cover;
-    padding: 24px;
-    display: flex;
-    flex-grow: 1;
-    flex-direction: row;
-    align-items: flex-end;
-    min-height: 200px;
+.hide { 
+    max-height: 0;
+    transition: max-height 0.3s ease-in;
+    overflow: hidden;
 }
 
-/*
-.mdl-card__supporting-text{
-    width: 100%;
-    padding: 16px;
-    box-sizing: border-box;
-}
-*/
-
-.mdl-layout__content{
-    background-color: $colorGrey900;
-}
-
-.mdl-button--primary .mdl-button--primary{
-    color: $colorRed500;
+.show {
+    max-height: 500px;
+    transition: max-height 0.3s ease-in;
 }
 
 .text-initial{
@@ -186,118 +174,21 @@ p {
     transition: all 0.3s ease-in;
 }
 
-.headline-bg {
-    height: 100vh;
-    display: flex;
-    .headline-text {
-        margin: auto;
-
-        .logo-area{
-            display: flex;
-            flex-direction: row;
-            height: auto;
-
-            > *:first-child{
-                padding-right: 32px;
-            }
-            .right-side{
-                margin: auto;
-                    h5{
-                    margin: 0;
-                }
-            }
-        }
-    }
-}
-
-.avatar{
-    height: auto;
-    margin: auto;
-    width: 200px;
-    img{
-        border-radius: 50%;
-    }
-}
-
-.about-card{
-    display: flex;
-    .area__social-media{
-        margin: auto;
-    }
-}
-
-.specialization-bg {
-    width: 100%;
-    height: 500px;
-    display: flex;
-    .specialization-text {
-        margin: auto;
-    }
-}
-
-.md-tumblr-card .mdl-card__media{
-    background-color: $colorBlueGrey700;
-}
-.calcutip-card .mdl-card__media{
+.mdl-layout__content{
     background-color: $colorGrey800;
 }
-.md-kakao-card .mdl-card__media{
-    background-color: $colorCyan500;
-}
-.md-yorku-card .mdl-card__media{
-    background-color: $colorRed500;
+
+.content-area__posts{
+
 }
 
-.end-align{
-    flex-grow: 1;
-    flex-direction: row;
-    align-items: flex-end;
+.mdl-layout__container{
+    
 }
 
-.flex-row{
+.total-area {
     display: flex;
-    flex-direction: row;
-}
-
-.portfolio-card{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-
-    .mdl-card{
-        width: 100%;
-        margin-bottom: 0;
-    }
-    .photography-card{
-        background: url(../images/toronto.jpg) center / cover;
-        min-height: 300px;
-    }
-    .kakao-card{
-        background: url(../images/kakao.png) center / cover;
-        background-color: $colorCyan500;
-        min-height: 300px;
-    }
-    .calcutip-card{
-        background: url(../images/calcutip.png) center / cover;
-        background-color: $colorGrey800;
-        min-height: 300px;
-    }
-    .tumblr-card{
-        background: url(../images/tumblr.png) center / cover;
-        background-color: $colorBlueGrey700;
-        min-height: 300px;
-    }
-    .mdl-card__actions {
-        padding: 16px;
-
-    }
-    h5{
-        margin-bottom: 8px;
-    }
-}
-
-.link-block{
-    display: block;
+    padding: 25px;
 }
 
 .contact-bg {
@@ -309,32 +200,6 @@ p {
     display: flex;
 }
 
-
-button{
-    margin-right: 16px;
-}
-
-.left{
-    float: left;
-}
-
-.right{
-    float: right;
-}
-
-.parallax{
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-}
-
 @media all and (min-width: 990px) {
-    .mdl-card__media{
-        padding-left: 48px;
-        padding-right: 48px;
-    }
-    .mdl-card__supporting-text {
-        padding: 48px;
-    }
+
 }
