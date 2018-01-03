@@ -1,0 +1,59 @@
+/**
+*	Footer SCSS
+**/
+.footer{
+    &__bg{
+        // height: 300px;
+    }
+    &__content{
+        color: #000;
+        .top-area{
+            background: $colorGrey100;
+            padding: 200px 24px 32px 24px;
+            @media all and (min-width: $medium){
+                padding: 300px 24px 32px 24px;
+            }
+            .social-media-area{
+                ul{
+                    list-style-image: none;
+                    list-style-type: none;
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    li{
+                        padding: 16px;
+                        transition: 0.42s ease-out;
+                        svg{
+                            fill: $colorGrey700;
+                        }
+                        &:first-child{
+                            padding-left: 0;
+                        }
+                        &:last-child{
+                            padding-right: 0;
+                        }
+                        &:hover{
+                            transition: 0.42s ease-out;
+                            svg{
+                                fill: #000;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .bottom-area{
+            background: #fff;
+            padding: 32px 24px;
+            @media all and (min-width: $medium){
+                padding: 32px 24px;
+            }
+            &__content{
+                color: $colorGrey700;
+            }
+        }
+        p{
+            font-size: 1em;
+        }
+    }
+}
